@@ -1,0 +1,5 @@
+com/mx/ieepo/FirstMysqlConectionApplication.class
+com/mx/ieepo/services/ProfesorService.class
+com/mx/ieepo/respository/ProfesorRespository.class
+com/mx/ieepo/controller/ProfesorController.class
+com/mx/ieepo/domain/Profesor.class
