@@ -1,8 +1,6 @@
 package com.mx.ieepo.domain;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -18,7 +16,7 @@ public class Alumno {
 	private String nombre;
 	private String edad;
 	
-	@ManyToOne(    )
+	@ManyToOne(optional=true)
 	private Profesor profesor;
 
 	public Long getId() {

@@ -4,7 +4,9 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
+import org.springframework.web.client.RestTemplate;
 
 import com.mx.ieepo.domain.Alumno;
 import com.mx.ieepo.respository.AlumnoRepository;
@@ -12,15 +14,30 @@ import com.mx.ieepo.respository.AlumnoRepository;
 @Component
 public class AlumnoService {
 	
+	private RestTemplate restTemplate;
+	
+	@Value("url.files")
+	private String pathFile;
+	
 	@Autowired
 	private AlumnoRepository alumnoRepository;
 	
 	public Optional<Alumno> findbyId(Long id) {
+		/*
+		 * 
+		 * implementacion de codigo acciones
+		 * */
+		Object objeto = new Object();
+		objeto= restTemplate.getForEntity(pathFile, Object.class);
+		/*
+		 * continuamos con lo que se requiera
+		 * */
 		return alumnoRepository.findById(id);
 		
 	}
 	
 	public Iterable<Alumno> findAll() {
+		System.out.print("valor de pathFile " + pathFile);
 		return alumnoRepository.findAll();
 		
 	}

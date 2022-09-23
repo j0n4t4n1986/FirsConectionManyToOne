@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 
 import com.mx.ieepo.domain.Profesor;
 import com.mx.ieepo.dto.Responsedto;
+import com.mx.ieepo.enums.EdoCivil;
 import com.mx.ieepo.respository.ProfesorRespository;
 
 @Component
@@ -28,6 +29,7 @@ public class ProfesorService {
 	}
 	
 	public Profesor save(Profesor profesor) {
+		profesor.setEstadoCivil(EdoCivil.casado);
 		return profesorRespository.save(profesor);
 		
 	}

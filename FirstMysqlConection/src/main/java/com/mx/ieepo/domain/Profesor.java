@@ -9,6 +9,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.mx.ieepo.enums.EdoCivil;
+
 @Entity
 //@Table(name="catedratico")
 public class Profesor {
@@ -20,9 +23,24 @@ public class Profesor {
 	private Integer edad;
 	private String direccion;
 	
-	@OneToMany(mappedBy="")
+	private EdoCivil estadoCivil;
+	
+	@JsonIgnore
+	@OneToMany(mappedBy="profesor")
 	List<Alumno> alumnoList= new ArrayList<Alumno>();
 	
+	public EdoCivil getEstadoCivil() {
+		return estadoCivil;
+	}
+	public void setEstadoCivil(EdoCivil estadoCivil) {
+		this.estadoCivil = estadoCivil;
+	}
+	public List<Alumno> getAlumnoList() {
+		return alumnoList;
+	}
+	public void setAlumnoList(List<Alumno> alumnoList) {
+		this.alumnoList = alumnoList;
+	}
 	public Long getId() {
 		return id;
 	}

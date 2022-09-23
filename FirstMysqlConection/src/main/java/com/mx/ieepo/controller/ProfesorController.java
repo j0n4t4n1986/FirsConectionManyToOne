@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.mx.ieepo.domain.Profesor;
 import com.mx.ieepo.dto.Responsedto;
 import com.mx.ieepo.services.ProfesorService;
-
 @RestController
 @RequestMapping("profesor")
 public class ProfesorController {
@@ -34,7 +33,7 @@ public class ProfesorController {
 		return profesorService.findbyId(id);
 	}
 	
-	@GetMapping(value="")
+	@GetMapping(value="", produces = "application/json")
 	public Iterable<Profesor> findAll () {
 		return profesorService.findAll();
 	}
